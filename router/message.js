@@ -13,6 +13,15 @@ router.post("/api/message", async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get("/api/message/list", async (req, res) => {
+
+  try {
+    const savedMessage = await Message.find({});
+    res.status(200).json(savedMessage);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //get
 
